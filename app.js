@@ -10,7 +10,7 @@ app.use(express.static(__dirname + 'public/stylesheets/style.css'));
 app.use(express.static(__dirname + 'public/javascripts/script.js'));
 
 var mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+
 mongoose.set('useNewUrlParser', true);
 
 var resultsSchema = new mongoose.Schema({
@@ -19,6 +19,7 @@ var resultsSchema = new mongoose.Schema({
 });
 
 var User = mongoose.model('User', resultsSchema);
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Initials', {
   useUnifiedTopology: true,
 });
