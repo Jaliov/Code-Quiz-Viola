@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+require('dotenv').config();
 const port = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -18,7 +19,7 @@ var resultsSchema = new mongoose.Schema({
 });
 
 var User = mongoose.model('User', resultsSchema);
-mongoose.connect('mongodb://localhost:27017/Initials', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Initials', {
   useUnifiedTopology: true,
 });
 
