@@ -12,10 +12,6 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.set('useNewUrlParser', true);
 
-const startQuiz = () => {
-  alert('test');
-};
-
 var resultsSchema = new mongoose.Schema({
   initials: String,
   result2: Number,
