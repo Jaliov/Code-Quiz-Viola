@@ -10,8 +10,11 @@ app.use(express.static(__dirname + 'public/stylesheets/style.css'));
 app.use(express.static(__dirname + 'public/javascripts/script.js'));
 
 var mongoose = require('mongoose');
-
 mongoose.set('useNewUrlParser', true);
+mongoose.Promise = global.Promise;
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Initials', {
+  useUnifiedTopology: true,
+});
 
 var resultsSchema = new mongoose.Schema({
   initials: String,
@@ -19,10 +22,6 @@ var resultsSchema = new mongoose.Schema({
 });
 
 var User = mongoose.model('User', resultsSchema);
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Initials', {
-  useUnifiedTopology: true,
-});
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
