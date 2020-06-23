@@ -1,0 +1,25 @@
+{
+  "name": "code-quizdatabase",
+  "version": "1.0.0",
+  "description": "![](CodeQuiz_ScrnShot.jpg)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaliov/Code-Quiz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaliov/Code-Quiz/issues"
+  },
+  "homepage": "https://github.com/Jaliov/Code-Quiz#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19"
+  }
+}

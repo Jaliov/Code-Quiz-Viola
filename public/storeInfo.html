@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 style="background-color:red;">Results</h1>
+    <div id="displayStorage" name="displayStorage" method="post">
+    </div>
+
+    <form method="post" action="/addname">
+        <label>Enter Your Name</label><br>
+        <input type="text" name="firstName" placeholder="Enter first name..." required>
+        <input type="text" name="lastName" placeholder="Enter last name..." required>
+        <input type="submit" value="Add Name">
+    </form>
+</body>
+
+</html>
+
+<scruot src="script.js"></scruot>
+
+<script>
+    document.getElementById("displayStorage").innerHTML = localStorage.getItem("Results");
+</script>
