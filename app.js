@@ -17,8 +17,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Initials', {
 });
 
 var resultsSchema = new mongoose.Schema({
-  initials: String,
-  result2: Number,
+  initials: { type: String, default: '' },
+  result2: { type: Number, default: 0 },
 });
 
 var User = mongoose.model('User', resultsSchema);
