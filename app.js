@@ -19,12 +19,9 @@ var resultsSchema = new mongoose.Schema({
 });
 
 var User = mongoose.model('User', resultsSchema);
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/code-quizdatabase',
-  {
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/Initials', {
+  useUnifiedTopology: true,
+});
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
