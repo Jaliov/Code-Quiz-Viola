@@ -28,6 +28,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/addinitials', (req, res) => {
+  console.log(req.body);
   var myData = new User(req.body);
   myData
     .save()
