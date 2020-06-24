@@ -12,7 +12,7 @@ app.use(express.static(__dirname + 'public/javascripts/script.js'));
 var mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.PROD_MONGODB || 'mongodb://localhost/Initials', {
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/Initials', {
   useUnifiedTopology: true,
 });
 
