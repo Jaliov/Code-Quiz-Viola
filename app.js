@@ -9,12 +9,16 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use(express.static(__dirname + 'public/stylesheets/style.css'));
 app.use(express.static(__dirname + 'public/javascripts/script.js'));
 
+// var url = "mongodb://heroku_nnwvl2bv:o442desc5rdcimerqcu1i00qa8@ds155516.mlab.com:55516/heroku_nnwvl2bv"
 var mongoose = require('mongoose');
 mongoose.set('useNewUrlParser', true);
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost/Initials', {
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost/Code-Quiz-Viola',
+  {
+    useUnifiedTopology: true,
+  }
+);
 
 var resultsSchema = new mongoose.Schema({
   initials: { type: String, default: '' },
@@ -27,19 +31,20 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.post('/addinitials', (req, res) => {
+app.post('/addInitials', (req, res) => {
   console.log(req.body);
   var myData = new User(req.body);
   myData
     .save()
     .then((item) => {
-      res.send('Saved! ' + '<h2><a href = "/" >Back to Quiz </a></h2>');
+      // res.send('Saved! ' + '<!--<h2><a href = "/" >Back to Quiz </a></h2>');-->
+      res.send(console.log('Saved'));
     })
     .catch((err) => {
       res.status(400).send('unable to save to database');
     });
 });
 
-app.listen(port, () => console.log(`Listen port ${port}....`));
+app.listen(port, () => console.log(`Listening port ${port}....`));
 
 module.exports = app;
