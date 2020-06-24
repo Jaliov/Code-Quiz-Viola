@@ -40,3 +40,5 @@ app.post('/addinitials', (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listen port ${port}....`));
+
+module.exports = app;
