@@ -60,7 +60,7 @@ function setTime() {
   $('#intro').empty();
   $('#srtBtn').empty();
   displyField.innerHTML =
-    "<input type='number' name='result2' id='result2' class='clearField' style='width: 35px;' required min='1' max='3'> ";
+    "<input type='number' name='result2' id='result2' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
   finalScore = document.getElementById('result2');
   var userChoice;
