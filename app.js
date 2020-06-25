@@ -9,16 +9,18 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use(express.static(__dirname + 'public/stylesheets/style.css'));
 app.use(express.static(__dirname + 'public/javascripts/script.js'));
 
-// var url = "mongodb://heroku_nnwvl2bv:o442desc5rdcimerqcu1i00qa8@ds155516.mlab.com:55516/heroku_nnwvl2bv"
+var url =
+  'mongodb+srv://Vlanut:Funkle3258@jarcluster-bjsom.mongodb.net/JARCluster?retryWrites=true&w=majority';
 var mongoose = require('mongoose');
-mongoose.set('useNewUrlParser', true);
 mongoose.Promise = global.Promise;
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/Code-Quiz-Viola',
-  {
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(url || 'mongodb://localhost/Code-Quiz-Viola', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+mongoose.connection.on('connected', () => {
+  console.log('Mongoose is connected!!!');
+});
 
 var resultsSchema = new mongoose.Schema({
   initials: { type: String, default: '' },
@@ -37,7 +39,10 @@ app.post('/addInitials', (req, res) => {
   myData
     .save()
     .then((item) => {
-      // res.send('Saved! ' + '<!--<h2><a href = "/" >Back to Quiz </a></h2>');-->
+      res.send(
+        'Saved! ' +
+          '<h2 ><a href = "/" style="color:red;text-decoration: none">Back to Quiz </a></h2>'
+      );
       res.send(console.log('Saved'));
     })
     .catch((err) => {
