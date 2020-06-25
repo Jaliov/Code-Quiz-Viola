@@ -9,8 +9,10 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use(express.static(__dirname + 'public/stylesheets/style.css'));
 app.use(express.static(__dirname + 'public/javascripts/script.js'));
 
+const dbName = 'test';
+
 var url =
-  'mongodb+srv://Vlanut:Funkle3258@jarcluster-bjsom.mongodb.net/JARCluster?retryWrites=true&w=majority';
+  'mongodb+srv://TestViola:Flunky5832@cluster0-sils7.mongodb.net/test?retryWrites=true&w=majority';
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect(
@@ -42,11 +44,17 @@ app.get('/', (req, res) => {
 });
 
 app.post('/addinitials', (req, res) => {
-  console.log(req.body);
+  var myData = new User(req.body);
+  myData.save().catch((err) => {
+    res.status(400).send('unable to save to database');
+  });
 });
 
 app.post('/addScore', (req, res) => {
-  console.log(req.body);
+  var myData = new User(req.body);
+  myData.save().catch((err) => {
+    res.status(400).send('unable to save to database');
+  });
 });
 
 app.listen(port, () => console.log(`Listening port ${port}....`));
