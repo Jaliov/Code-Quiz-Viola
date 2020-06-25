@@ -13,10 +13,17 @@ var url =
   'mongodb+srv://Vlanut:Funkle3258@jarcluster-bjsom.mongodb.net/JARCluster?retryWrites=true&w=majority';
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect(url || 'mongodb://localhost/Code-Quiz-Viola', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  url || 'mongodb://localhost/Code-Quiz-Viola',
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err, client) => {
+    if (err) return console.error(err);
+    console.log('Connected to Database');
+  }
+);
 
 mongoose.connection.on('connected', () => {
   console.log('Mongoose is connected!!!');
@@ -36,14 +43,6 @@ app.get('/', (req, res) => {
 
 app.post('/addinitials', (req, res) => {
   console.log(req.body);
-  var myData = new User(req.body);
-  myData.save((error) => {
-    if (error) {
-      console.log('Oops');
-    } else {
-      res.send('Saved! ' + "<br><a href = '/'>Back</a><br>");
-    }
-  });
 });
 
 app.listen(port, () => console.log(`Listening port ${port}....`));
