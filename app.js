@@ -37,18 +37,13 @@ app.get('/', (req, res) => {
 app.post('/addinitials', (req, res) => {
   console.log(req.body);
   var myData = new User(req.body);
-  myData
-    .save()
-    .then((item) => {
-      res.send(
-        'Saved! ' +
-          '<h2 ><a href = "/" style="color:red;text-decoration: none">Back to Quiz </a></h2>'
-      );
-      res.send(console.log('Saved'));
-    })
-    .catch((err) => {
-      res.status(400).send('unable to save to database');
-    });
+  myData.save((error) => {
+    if (error) {
+      console.log('Oops');
+    } else {
+      res.send('Saved! ' + "<br><a href = '/'>Back</a><br>");
+    }
+  });
 });
 
 app.listen(port, () => console.log(`Listening port ${port}....`));
