@@ -27,13 +27,14 @@ var resultsSchema = new mongoose.Schema({
   result2: { type: Number, default: 0 },
 });
 
+//Model
 var User = mongoose.model('User', resultsSchema);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.post('/addInitials', (req, res) => {
+app.post('/addinitials', (req, res) => {
   console.log(req.body);
   var myData = new User(req.body);
   myData
