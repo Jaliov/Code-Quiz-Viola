@@ -16,7 +16,8 @@ app.use(express.static(__dirname + 'public/javascripts/script.js'));
 
 var mongoose = require('mongoose');
 
-const url = process.env.MONGODB_URI || 'mongodb://localhost/Code-Quiz-Viola';
+const url =
+  process.env.MONGOLAB_NAVY_URI || 'mongodb://localhost/Code-Quiz-Viola';
 
 // var MONGODB_URI =
 //   'mongodb+srv://TestViola:Flunky5832@cluster0-sils7.mongodb.net/test?retryWrites=true&w=majority';
