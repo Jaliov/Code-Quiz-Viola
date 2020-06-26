@@ -22,7 +22,7 @@ var MONGODB_URI =
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  MONGODB_URI || 'mongodb://localhost:27017/Code-Quiz-Viola',
+  MONGODB_URI || 'mongodb://localhost/Code-Quiz-Viola',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
