@@ -101,20 +101,17 @@ function sendMessage() {
     initialStorage();
     if (score === 6) {
       setTimeout(function () {
-        alert('Perfect score, congratulations!');
-        alert('Submit your final score below!');
-      }, 3000);
+        alert('Perfect score, congratulations! Submit your final score below!');
+      }, 1000);
     } else if (score >= 4) {
       setTimeout(function () {
-        alert('Good score, congratulations!');
-        alert('Submit your final score below!');
+        alert('Good score, congratulations! Submit your final score below!');
       }, 1000);
     } else if (score < 4 && score > 0) {
       setTimeout(function () {
         alert(
-          'Perhaps you should study up on the viola! (It will make you a better person!)'
+          'Perhaps you should study up on the viola! (It will make you a better person! Submit your final score below!)'
         );
-        alert('Submit your final score below!');
       }, 1000);
     } else {
       quizRepeat();
