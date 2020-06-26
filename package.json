@@ -1,5 +1,5 @@
 {
-  "name": "code-quizdatabase",
+  "name": "code-quiz-viola",
   "version": "1.0.0",
   "description": "![](CodeQuiz_ScrnShot.jpg)",
   "main": "app.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jaliov/Code-Quiz.git"
+    "url": "git+https://github.com/Jaliov/Code-Quiz-Viola"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jaliov/Code-Quiz/issues"
+    "url": "https://https://github.com/Jaliov/Code-Quiz-Viola/issues"
   },
-  "homepage": "https://github.com/Jaliov/Code-Quiz#readme",
+  "homepage": "https://github.com/Jaliov/Code-Quiz-Viola#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "connect-timeout": "^1.9.0",
