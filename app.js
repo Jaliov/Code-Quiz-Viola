@@ -56,7 +56,10 @@ app.post('/addInits', (req, res) => {
   myData
     .save()
     .then((item) => {
-      res.send('initials saved to database');
+      res.send(
+        'Initials saved to database! ' +
+          '<a href = "/"><button>Back to Quiz</button></a>'
+      );
     })
     .catch((err) => {
       res.status(400).send('unable to save to database');
@@ -68,7 +71,10 @@ app.post('/addScore', (req, res) => {
   myData
     .save()
     .then((item) => {
-      res.send('score saved to database');
+      res.send(
+        'Score saved to database! ' +
+          '<a href = "/"><button>Back to Quiz</button></a>'
+      );
     })
     .catch((err) => {
       res.status(400).send('unable to save to database');

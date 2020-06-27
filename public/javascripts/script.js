@@ -76,6 +76,7 @@ function setTime() {
     timeEl.textContent = t + ' Timer';
     if (t === 0 || qIndex === 6 || score === 6 || t < 0) {
       finalScore.value = score;
+      $('#testInit').empty();
       loadFinalScore.innerHTML =
         "<label class = 'timeEl'>Submit Your Final Score!</label><button class='btn btn-outline-light' value='Submit' onclick='clearScore' style='margin-left:5px;' >Final Score</button>";
       clearInterval(timerInterval);
@@ -151,6 +152,7 @@ function chooseFamily() {
 
 const clearScore = () => {
   document.getElementById('results2').value = '';
+  submitAnsw.innerhtml = '';
   quizRepeat();
 };
 
