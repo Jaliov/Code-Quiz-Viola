@@ -51,15 +51,16 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.post('/addInits', (req, res) => {
+app.post('/test', (req, res) => {
   var myData = new User(req.body);
   myData
     .save()
     .then((item) => {
       res.send(
-        '<h2>Saved!</h2> ' +
-          '<a href = "/"><button><h1>Back to Quiz</h1></button></a>'
+        '<body style="background-color: rgba(158, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Initials Saved!</h2> ' +
+          '<a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a><h2>Then press start!</h2></div></body>'
       );
+      console.log(req.body);
     })
     .catch((err) => {
       res.status(400).send('unable to save to database');
@@ -72,9 +73,10 @@ app.post('/addScore', (req, res) => {
     .save()
     .then((item) => {
       res.send(
-        '<h1>Final Score Saved!</h1> ' +
-          '<a href = "/"><button><h1>Back</h1></button></a>'
+        '<body style="background-color:rgba(140, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Final Score Saved!</h2> ' +
+          '<a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a></div></body>'
       );
+      console.log(req.body);
     })
     .catch((err) => {
       res.status(400).send('unable to save to database');
