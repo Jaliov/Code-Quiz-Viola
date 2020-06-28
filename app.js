@@ -57,8 +57,8 @@ app.post('/addInits', (req, res) => {
     .save()
     .then((item) => {
       res.send(
-        'Initials saved to database! ' +
-          '<a href = "/"><button>Back to Quiz</button></a>'
+        '<h2>Saved!</h2> ' +
+          '<a href = "/"><button><h1>Back to Quiz</h1></button></a>'
       );
     })
     .catch((err) => {
@@ -72,8 +72,8 @@ app.post('/addScore', (req, res) => {
     .save()
     .then((item) => {
       res.send(
-        'Score saved to database! ' +
-          '<a href = "/"><button>Back to Quiz</button></a>'
+        '<h1>Final Score Saved!</h1> ' +
+          '<a href = "/"><button><h1>Back</h1></button></a>'
       );
     })
     .catch((err) => {
