@@ -67,7 +67,7 @@ app.post('/test', (req, res) => {
     });
 });
 
-app.post('/addScore', (req, res) => {
+app.post('/test', (req, res) => {
   var myData = new User(req.body);
   myData
     .save()
