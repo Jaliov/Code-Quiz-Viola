@@ -4,7 +4,7 @@ body {
 
 #jumboColor {
   /* background-image: url(ViolaBackFoggy.jpg); */
-  background-color: rgb(200, 93, 60, 0.5);
+  background-color: rgba(158, 94, 75, 0.5);
 }
 
 #result {

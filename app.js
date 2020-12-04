@@ -9,7 +9,7 @@ app.use(morgan('dev'));
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/public', express.static(__dirname + '/public'));
 app.use(express.static(__dirname + 'public/stylesheets/style.css'));
 app.use(express.static(__dirname + 'public/javascripts/script.js'));
@@ -58,7 +58,7 @@ app.post('/test', (req, res) => {
     .then((item) => {
       res.send(
         '<body style="background-color: rgba(158, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Initials Saved!</h2> ' +
-          '<a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a><h2>Then press start!</h2></div></body>'
+          '<a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;" id="startBtn" ><h2>Back to Quiz</h2></button></a><h2>Then press start!</h2></div></body>'
       );
       console.log(req.body);
     })
