@@ -17,15 +17,8 @@ app.use(express.static(__dirname + 'public/javascripts/script.js'));
 var mongoose = require('mongoose');
 
 const url =
-<<<<<<< HEAD
   process.env.MONGODB_URI || 'mongodb://localhost/Code-Quiz-Viola';
-=======
-  process.env.MONGODB_URI|| 'mongodb://localhost/Code-Quiz-Viola';
->>>>>>> f1efbe45d04fe21427108d0785e6a0261859919f
-
-// var MONGODB_URI =
-//   'mongodb+srv://TestViola:Flunky5832@cluster0-sils7.mongodb.net/test?retryWrites=true&w=majority';
-
+ 
 mongoose.Promise = global.Promise;
 mongoose.connect(
   url,
@@ -89,4 +82,4 @@ app.post('/test', (req, res) => {
 
 app.listen(port, () => console.log(`Listening port ${port}....`));
 
-// module.exports = app;
+
