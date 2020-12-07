@@ -40,7 +40,7 @@ var startButton = document.getElementById('start');
 startButton.addEventListener('click', setTime);
 var scoreDisplay = document.getElementById('result');
 var initialsClear = document.querySelector('.clearField');
-var finalScore = document.getElementById('result2');
+var finalScore = document.getElementById('finalScore');
 // var userChoice;
 let loadFinalScore = document.getElementById('formPost');
 var displyField = document.getElementById('loadField');
@@ -60,9 +60,9 @@ function setTime() {
   $('#intro').empty();
   $('#srtBtn').empty();
   displyField.innerHTML =
-    "<input type='number' name='result2' id='result2' class='clearField' style='width: 35px;' required min='1' max='6'> ";
+    "<input type='number' name='result2' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
-  finalScore = document.getElementById('result2');
+  finalScore = document.getElementById('finalScore');
   var userChoice;
   loadFinalScore = document.getElementById('formPost');
   finalScore.innerHTML = '';
