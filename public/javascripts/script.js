@@ -60,7 +60,7 @@ function setTime() {
   $('#intro').empty();
   $('#srtBtn').empty();
   displyField.innerHTML =
-    "<input type='number' name='result2' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
+    "<input type='number' name='finalScore' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
   finalScore = document.getElementById('finalScore');
   var userChoice;
@@ -151,7 +151,7 @@ function chooseFamily() {
 }
 
 const clearScore = () => {
-  document.getElementById('results2').value = '';
+  document.getElementById('finalScore').value = '';
   submitAnsw.innerhtml = '';
   quizRepeat();
 };
