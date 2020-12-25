@@ -78,7 +78,7 @@ function setTime() {
       finalScore.value = score;
       $('#testInit').empty();
       loadFinalScore.innerHTML =
-        "<label class = 'timeEl'>Submit Your Final Score!</label><button class='btn btn-outline-light' value='Submit' onclick='clearScore' style='margin-left:5px;' >Final Score</button>";
+        "<label class = 'timeEl'>Submit Your Final Score here!</label><button class='btn btn-outline-light' value='Submit' onclick='clearScore' style='margin-left:5px;' >Final Score</button>";
       clearInterval(timerInterval);
       sendMessage();
       nextQuesArr = null;
