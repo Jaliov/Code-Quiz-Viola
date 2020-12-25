@@ -16,7 +16,7 @@ app.use(express.static(__dirname + 'public/javascripts/script.js'));
 
 var mongoose = require('mongoose');
 
-const url =
+const url = //'mongodb://127.0.0.1:27017'
   process.env.MONGODB_URI || 'mongodb://localhost/Code-Quiz-Viola';
  
 mongoose.Promise = global.Promise;
@@ -58,6 +58,7 @@ app.post('/test', (req, res) => {
           '<a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;" id="startBtn" ><h2>Back to Quiz</h2></button></a><h2>Then press start!</h2></div></body>'
       );
       console.log(req.body);
+      res.redirect('/');
     })
     .catch((err) => {
       res.status(400).send('unable to save to database');
