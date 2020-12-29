@@ -38,4 +38,10 @@ body {
   height: 120%;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  font-size: 90%;
+  opacity: .5; /* Firefox */
+}
+
 

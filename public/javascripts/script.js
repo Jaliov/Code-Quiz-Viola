@@ -48,6 +48,12 @@ var displyField = document.getElementById('loadField');
 var t = 60;
 var score = 0;
 
+function alertSubmit() {
+let alrtSubmt = document.querySelector('#initials')
+alrtSubmt.addEventListener("click", alert('Initials saved!')) 
+}
+
+
 function loadStart() {
   document.getElementById('testInit').innerHTML =
     "<h5 class='text-center'>Answer Here: <input type='number' id='ans' name='scoreRecord' placeholder = '1,2,3' min='1' max='3'></h5><button class='btn btn-outline-light mx-auto' style='width: 100px;' id='submit'>Submit</button>";
@@ -124,7 +130,7 @@ function cnsoleInitials() {
   initStorage.value.length > 3 ||
   initStorage.value == '' ||
   isNaN(parseInt(initStorage.value)) == false
-    ? alert('Please enter your intials.') + (initStorage.value = ' ')
+    ? alert('Please enter your initials.') + (initStorage.value = ' ')
     : alert('Now press start!');
   console.log('initials : ' + typeof initStorage.value);
 }

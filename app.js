@@ -53,16 +53,10 @@ app.post('/test', (req, res) => {
   myData
     .save()
     .then((item) => {
-      // res.send("item saved to database");
-      res.redirect('/')
+    
+     res.redirect('/')
+  
     })
-      // res.send(
-      //   '<body style="background-color: rgba(158, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Initials are Saved!</h2> ' +
-      //     '<a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;" id="startBtn" ><h2>Back to Quiz</h2></button></a><h2>Then press start!</h2></div></body>'
-      // );
-    //   console.log(req.body);
-     
-    // })
     .catch((err) => {
       res.status(400).send('unable to save to database');
     });
