@@ -40,8 +40,11 @@ body {
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: red;
-  font-size: 90%;
+  font-size: 80%;
   opacity: .5; /* Firefox */
 }
 
+h1 {
+  font-family: 'Bigshot One', cursive;
+}
 
