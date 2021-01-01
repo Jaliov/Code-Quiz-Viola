@@ -53,9 +53,11 @@ app.post('/test', (req, res) => {
   myData
     .save()
     .then((item) => {
+      
+  res.send("item saved to database");
+        
+     //res.redirect()
     
-     res.redirect('/')
-  
     })
     .catch((err) => {
       res.status(400).send('unable to save to database');
@@ -80,5 +82,3 @@ app.post('/addScore', (req, res) => {
 });
 
 app.listen(port, () => console.log(`Listening port ${port}....`));
-
-

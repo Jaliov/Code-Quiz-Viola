@@ -29,10 +29,6 @@ var multiChoices = [
       "<h4 class = 'text-left'>Perhaps the most famous work for solo viola is entitled:</h4><ol class = 'text-left'><li><em>Finalandia</em></li><li><em>Afternoon of a Fawn</em></li><li><em>Harold in Italy</em></li></ol>",
     answer: '3',
   },
-  {
-    question:
-    ""
-  },
 ];
 
 var qIndex = 0;
@@ -52,19 +48,9 @@ var displyField = document.getElementById('loadField');
 var t = 60;
 var score = 0;
 
-function alertSubmit() {
-
-let alrtSubmt = document.querySelector('#initials')
-alrtSubmt.addEventListener("click", alert('Initials saved! Now press Start!')) 
-$(".clearField").remove();
-
-}
-
-
-
 function loadStart() {
   document.getElementById('testInit').innerHTML =
-    "<h5 class='text-center'>Answer Here: <input type='number' id='ans' name='scoreRecord' placeholder = '1,2,or 3' min='1' max='3'></h5><button class='btn btn-outline-light mx-auto' style='width: 100px;' id='submit'>Submit</button>";
+    "<h5 class='text-center'>Answer Here: <input type='number' id='ans' name='scoreRecord' placeholder = '1,2,3' min='1' max='3'></h5><button class='btn btn-outline-light mx-auto' style='width: 100px;' id='submit'>Submit</button>";
   var submitBtn = document.getElementById('submit');
   submitBtn.addEventListener('click', chooseFamily);
 }
@@ -72,8 +58,7 @@ function loadStart() {
 function setTime() {
   loadStart();
   $('#intro').empty();
-  $('#startBtn').empty();
-
+  $('#srtBtn').empty();
   displyField.innerHTML =
     "<input type='number' name='finalScore' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
@@ -89,19 +74,14 @@ function setTime() {
   var timerInterval = setInterval(function () {
     t--;
     timeEl.textContent = t + ' Timer';
-    if (t === 0 || qIndex > 5 || score === 6 || t < 0) {
+    if (t === 0 || qIndex === 6 || score === 6 || t < 0) {
       finalScore.value = score;
       $('#testInit').empty();
-      setTimeout(() => {
-      $("#modal_incorrect").hide(); $("#modal_correct").hide();  
-      $(document.body).removeClass("modal-open");
-      $(".modal-backdrop").remove(); },1000);
-
       loadFinalScore.innerHTML =
         "<label class = 'timeEl'>Submit Your Final Score here!</label><button class='btn btn-outline-light' value='Submit' onclick='clearScore' style='margin-left:5px;' >Final Score</button>";
       clearInterval(timerInterval);
       sendMessage();
-      nextQuesArr == null;
+      nextQuesArr = null;
       setTimeout(quizRepeat, 15000);
     }
   }, 1000);
@@ -131,13 +111,22 @@ function sendMessage() {
     } else if (score < 4 && score > 0) {
       setTimeout(function () {
         alert(
-          "Learn more about the viola, it'll make you a better person! Submit your final score below!"
+          'Perhaps you should study up on the viola! (It will make you a better person! Submit your final score below!)'
         );
       }, 1000);
     } else {
       quizRepeat();
     }
   }
+}
+
+function cnsoleInitials() {
+  initStorage.value.length > 3 ||
+  initStorage.value == '' ||
+  isNaN(parseInt(initStorage.value)) == false
+    ? alert('Please enter your intials.') + (initStorage.value = ' ')
+    : alert('Now press start!');
+  console.log('initials : ' + typeof initStorage.value);
 }
 
 //Load questions
@@ -150,8 +139,8 @@ function chooseFamily() {
     $('input').val('');
     scoreDisplay.innerHTML = 'Score: ' + parseInt(++score);
   } else {
-    $('#modal_incorrect').modal();
     $('input').val('');
+    $('#modal_incorrect').modal();
     score = score;
     t = t + 5;
   }
@@ -159,7 +148,6 @@ function chooseFamily() {
   nextQuesArr.push(multiChoices[++qIndex].question);
   nextQuesArr.shift(multiChoices[qIndex].question);
   quesSection.innerHTML = nextQuesArr;
-  
 }
 
 const clearScore = () => {
