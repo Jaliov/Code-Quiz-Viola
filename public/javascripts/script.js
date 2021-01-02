@@ -53,10 +53,7 @@ var t = 60;
 var score = 0;
 
 function alertSubmit() {
-
-  // let alrtSubmt = document.querySelector('#initials')
-  alert('Press Start!'); 
-  $("#formSub").empty();
+  alert('Now press Start!'); 
   }
 
 function loadStart() {
@@ -76,7 +73,7 @@ function setTime() {
   loadStart();
   $('#intro').empty();
   $('#startBtn').empty();
- 
+  $("#formSub").empty();
   displyField.innerHTML =
     "<input type='number' name='finalScore' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
