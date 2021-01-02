@@ -29,11 +29,15 @@ var multiChoices = [
       "<h4 class = 'text-left'>Perhaps the most famous work for solo viola is entitled:</h4><ol class = 'text-left'><li><em>Finalandia</em></li><li><em>Afternoon of a Fawn</em></li><li><em>Harold in Italy</em></li></ol>",
     answer: '3',
   },
+  {
+    question:
+     "",
+  },
 ];
 
 var qIndex = 0;
 var nextQuesArr = [];
-var initStorage = document.querySelector('#initials');
+var initStorage = document.querySelector('#posted');
 var quesSection = document.querySelector('section');
 var timeEl = document.querySelector('.time');
 var startButton = document.getElementById('start');
@@ -48,26 +52,41 @@ var displyField = document.getElementById('loadField');
 var t = 60;
 var score = 0;
 
+function alertSubmit() {
+
+  // let alrtSubmt = document.querySelector('#initials')
+  alert('Press Start!'); 
+  $("#formSub").empty();
+  }
+
 function loadStart() {
+  
   document.getElementById('testInit').innerHTML =
     "<h5 class='text-center'>Answer Here: <input type='number' id='ans' name='scoreRecord' placeholder = '1,2,3' min='1' max='3'></h5><button class='btn btn-outline-light mx-auto' style='width: 100px;' id='submit'>Submit</button>";
-  var submitBtn = document.getElementById('submit');
+    var submitBtn = document.getElementById('submit');
   submitBtn.addEventListener('click', chooseFamily);
+}
+
+function showInitials() {
+  console.log("initials : " + initStorage)
+  initialsClear.innerHTML = '';
 }
 
 function setTime() {
   loadStart();
   $('#intro').empty();
-  $('#srtBtn').empty();
+  $('#startBtn').empty();
+ 
   displyField.innerHTML =
     "<input type='number' name='finalScore' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
+  
   finalScore = document.getElementById('finalScore');
   var userChoice;
   loadFinalScore = document.getElementById('formPost');
   finalScore.innerHTML = '';
   startButton.innerHTML = '';
-  initialsClear.innerHTML = '';
+  // initialsClear.innerHTML = '';
   nextQuesArr.push(multiChoices[qIndex].question);
   quesSection.innerHTML = nextQuesArr;
 
@@ -120,14 +139,16 @@ function sendMessage() {
   }
 }
 
-function cnsoleInitials() {
-  initStorage.value.length > 3 ||
-  initStorage.value == '' ||
-  isNaN(parseInt(initStorage.value)) == false
-    ? alert('Please enter your intials.') + (initStorage.value = ' ')
-    : alert('Now press start!');
-  console.log('initials : ' + typeof initStorage.value);
-}
+// function cnsoleInitials() {
+//   initStorage.length > 3 ||
+//   initStorage == '' ||
+//   isNaN(parseInt(initStorage)) == false
+//     ? alert('Please enter your intials.') + (initStorage = ' ')
+//     : alert('Now press start!');
+//   console.log('initials : ' + typeof initStorage);
+// }
+
+// cnsoleInitials();
 
 //Load questions
 function chooseFamily() {
@@ -159,7 +180,7 @@ const clearScore = () => {
 //Storage
 const initialStorage = () => {
   const quizStats = {
-    PlayerInitials: initStorage.value,
+    PlayerInitials: initStorage,
     finalScore: score,
   };
   typeof Storage !== 'undefined'

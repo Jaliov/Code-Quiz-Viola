@@ -43,11 +43,11 @@
           <div class="text-center">
             <div id="buttonPlce">
               <div class="form-row align-items-center justify-content-center clearField">
-                <form method='post' action='/test'>
+                <form method='post' action='/test' id = "formSub">
                   <label>Submit your Initials then press Start!</label><br>
                   <input type="text" name="initials" id="initials" style="width:50px;" placeholder="Initials" required>
                   <!-- <input type="text" name="score" placeholder="Enter score..." required> -->
-                  <input type = "submit" class="btn btn-outline-light initSubmit" value="Submit">
+                  <input type = "submit" class="btn btn-outline-light initSubmit" value="Submit" onclick = "alertSubmit()">
                 </form>
               </div>
             </div>

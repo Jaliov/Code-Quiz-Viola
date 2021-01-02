@@ -56,9 +56,7 @@ app.post('/test', (req, res) => {
   myData
     .save()
     .then((item) => {
-      
-  //res.send("item saved to database");
-        
+
     res.redirect('/')
     
     })
