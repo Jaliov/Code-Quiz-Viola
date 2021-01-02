@@ -53,6 +53,7 @@ var t = 60;
 var score = 0;
 
 function alertSubmit() {
+  '/test';
   alert('Now press Start!'); 
   $("#initials").empty();
   }
