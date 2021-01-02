@@ -53,11 +53,12 @@ var t = 60;
 var score = 0;
 
 function alertSubmit() {
-  alert('Initials saved! Now press Start!'); 
+  alert('Now press Start!'); 
+  document.querySelector('#initSubmit').value = "Submitted";
   }
 
 function loadStart() {
-  $("#initials").empty();
+ 
   
   document.getElementById('testInit').innerHTML =
     "<h5 class='text-center'>Answer Here: <input type='number' id='ans' name='scoreRecord' placeholder = '1,2,3' min='1' max='3'></h5><button class='btn btn-outline-light mx-auto' style='width: 100px;' id='submit'>Submit</button>";
@@ -74,7 +75,7 @@ function setTime() {
   loadStart();
   $('#intro').empty();
   $('#startBtn').empty();
- 
+  $("#initials").empty();
   displyField.innerHTML =
     "<input type='number' name='finalScore' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
@@ -142,17 +143,6 @@ function sendMessage() {
   }
 }
 
-// function cnsoleInitials() {
-//   initStorage.length > 3 ||
-//   initStorage == '' ||
-//   isNaN(parseInt(initStorage)) == false
-//     ? alert('Please enter your intials.') + (initStorage = ' ')
-//     : alert('Now press start!');
-//   console.log('initials : ' + typeof initStorage);
-// }
-
-// cnsoleInitials();
-
 //Load questions
 function chooseFamily() {
   let submitAnsw = document.querySelector('#ans');
@@ -207,3 +197,14 @@ const initialStorage = () => {
   AppendValueToStorage('Results', quizStats);
   //   document.forms[0].reset();
 };
+
+// function cnsoleInitials() {
+//   initStorage.length > 3 ||
+//   initStorage == '' ||
+//   isNaN(parseInt(initStorage)) == false
+//     ? alert('Please enter your intials.') + (initStorage = ' ')
+//     : alert('Now press start!');
+//   console.log('initials : ' + typeof initStorage);
+// }
+
+// cnsoleInitials();
