@@ -54,6 +54,7 @@ var score = 0;
 
 function alertSubmit() {
   alert('Now press Start!'); 
+  $("#initials").empty();
   }
 
 function loadStart() {
