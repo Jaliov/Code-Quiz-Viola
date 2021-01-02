@@ -52,8 +52,8 @@ var displyField = document.getElementById('loadField');
 var t = 60;
 var score = 0;
 
-function alertSubmit() {
-  '/test';
+function alertSubmit(form) {
+  form.action = '/test';
   alert('Now press Start!'); 
   $("#initials").empty();
   }
