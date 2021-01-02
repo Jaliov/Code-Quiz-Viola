@@ -52,13 +52,12 @@ var displyField = document.getElementById('loadField');
 var t = 60;
 var score = 0;
 
-function alertSubmit(form) {
-  form.action = '/test';
-  alert('Now press Start!'); 
-  $("#initials").empty();
+function alertSubmit() {
+  alert('Initials saved! Now press Start!'); 
   }
 
 function loadStart() {
+  $("#initials").empty();
   
   document.getElementById('testInit').innerHTML =
     "<h5 class='text-center'>Answer Here: <input type='number' id='ans' name='scoreRecord' placeholder = '1,2,3' min='1' max='3'></h5><button class='btn btn-outline-light mx-auto' style='width: 100px;' id='submit'>Submit</button>";
@@ -75,7 +74,7 @@ function setTime() {
   loadStart();
   $('#intro').empty();
   $('#startBtn').empty();
-  $("#formSub").empty();
+ 
   displyField.innerHTML =
     "<input type='number' name='finalScore' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
