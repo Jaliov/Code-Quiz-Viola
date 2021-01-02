@@ -38,8 +38,11 @@ mongoose.connection.on('connected', () => {
 
 var resultsSchema = new mongoose.Schema({
   initials: { type: String, default: '' },
-  finalScore: { type: Number, default: 0 },
 });
+
+var scoreSchema = new mongoose.Schema({
+  finalScore: { type: Number, default: 0 },
+})
 
 //Model
 var User = mongoose.model('User', resultsSchema);
@@ -64,6 +67,7 @@ app.post('/test', (req, res) => {
     });
   });
 
+var User = mongoose.model('UserS', scoreSchema);
 
 app.post('/addScore', (req, res) => {
   var myData = new User(req.body);
