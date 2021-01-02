@@ -67,10 +67,10 @@ app.post('/test', (req, res) => {
     });
   });
 
-var User = mongoose.model('UserS', scoreSchema);
+var UserS = mongoose.model('UserS', scoreSchema);
 
 app.post('/addScore', (req, res) => {
-  var myData = new User(req.body);
+  var myData = new UserS(req.body);
   myData
     .save()
     .then((item) => {
