@@ -116,6 +116,11 @@ function sendMessage() {
     quesSection.innerHTML = '';
     userChoice = '';
     console.log('score at close :' + score);
+    setTimeout(() => { 
+      $('.modal').hide();
+      $(document.body).removeClass("modal-open");
+      $(".modal-backdrop").remove(); },1000)
+  
     initialStorage();
     if (score === 6) {
       setTimeout(function () {
@@ -162,7 +167,9 @@ function chooseFamily() {
     $('#modal_incorrect').modal();
     score = score;
     t = t + 5;
-  }
+  } 
+  // if(indexof(multiChoices.question) > 5) {
+   
   scoreDisplay.innerHTML = 'Score: ' + score;
   nextQuesArr.push(multiChoices[++qIndex].question);
   nextQuesArr.shift(multiChoices[qIndex].question);
