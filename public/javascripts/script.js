@@ -37,7 +37,7 @@ var multiChoices = [
 
 var qIndex = 0;
 var nextQuesArr = [];
-var initStorage = document.querySelector('#posted');
+var initStorage = document.querySelector('#initials');
 var quesSection = document.querySelector('section');
 var timeEl = document.querySelector('.time');
 var startButton = document.getElementById('start');
@@ -52,30 +52,27 @@ var displyField = document.getElementById('loadField');
 var t = 60;
 var score = 0;
 
-function alertSubmit() {
-  alert('Now press Start!'); 
-  document.querySelector('#initSubmit').value = "Submitted";
-  }
+    document.querySelector('#initSubmit').addEventListener("mousedown", function(){
+    document.querySelector('#initSubmit').value = "Submitted";
+    console.log("initials : " + initStorage.value);
+   
+  })
+
+  document.querySelector('#initSubmit').addEventListener("mouseup", function(){alert("now press start")});
 
 function loadStart() {
- 
-  
+  $('#initForm').empty();
   document.getElementById('testInit').innerHTML =
     "<h5 class='text-center'>Answer Here: <input type='number' id='ans' name='scoreRecord' placeholder = '1,2,3' min='1' max='3'></h5><button class='btn btn-outline-light mx-auto' style='width: 100px;' id='submit'>Submit</button>";
     var submitBtn = document.getElementById('submit');
   submitBtn.addEventListener('click', chooseFamily);
 }
 
-function showInitials() {
-  console.log("initials : " + initStorage)
-  initialsClear.innerHTML = '';
-}
-
 function setTime() {
   loadStart();
   $('#intro').empty();
   $('#startBtn').empty();
-  $("#initials").empty();
+  
   displyField.innerHTML =
     "<input type='number' name='finalScore' id='finalScore' class='clearField' style='width: 35px;' required min='1' max='6'> ";
   event.preventDefault();
@@ -85,7 +82,6 @@ function setTime() {
   loadFinalScore = document.getElementById('formPost');
   finalScore.innerHTML = '';
   startButton.innerHTML = '';
-  // initialsClear.innerHTML = '';
   nextQuesArr.push(multiChoices[qIndex].question);
   quesSection.innerHTML = nextQuesArr;
 
@@ -122,7 +118,7 @@ function sendMessage() {
       $(document.body).removeClass("modal-open");
       $(".modal-backdrop").remove(); },1000)
   
-    initialStorage();
+    
     if (score === 6) {
       setTimeout(function () {
         alert('Perfect score, congratulations! Submit your final score below!');
@@ -140,6 +136,7 @@ function sendMessage() {
     } else {
       quizRepeat();
     }
+    initialStorage();
   }
 }
 
@@ -158,8 +155,7 @@ function chooseFamily() {
     score = score;
     t = t + 5;
   } 
-  // if(indexof(multiChoices.question) > 5) {
-   
+ 
   scoreDisplay.innerHTML = 'Score: ' + score;
   nextQuesArr.push(multiChoices[++qIndex].question);
   nextQuesArr.shift(multiChoices[qIndex].question);
@@ -170,12 +166,13 @@ const clearScore = () => {
   document.getElementById('finalScore').value = '';
   submitAnsw.innerhtml = '';
   quizRepeat();
+  
 };
 
 //Storage
 const initialStorage = () => {
   const quizStats = {
-    PlayerInitials: initStorage,
+    PlayerInitials: initStorage.value,
     finalScore: score,
   };
   typeof Storage !== 'undefined'

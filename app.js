@@ -18,7 +18,7 @@ var mongoose = require('mongoose');
 
 const url = //'mongodb://127.0.0.1:27017'
   process.env.MONGODB_URI || 'mongodb://localhost/Code-Quiz-Viola';
- 
+  
 mongoose.Promise = global.Promise;
 mongoose.connect(
   url,
@@ -32,12 +32,17 @@ mongoose.connect(
   }
 );
 
+mongoose.connection.on("error", err => {
+  console.log("err", err)
+})
+
 mongoose.connection.on('connected', () => {
   console.log('Mongoose is connected!!!');
 });
 
 var resultsSchema = new mongoose.Schema({
-  initials: { type: String, default: '' },
+  // initials: { type: String, default: '' },
+  initials: { type: String, match:/^[A-Za-z]{2,3}$/}
 });
 
 var scoreSchema = new mongoose.Schema({
@@ -56,12 +61,13 @@ app.post('/test', (req, res) => {
   myData
     .save()
     .then((item) => {
-    console.log(myData)
-    res.redirect('/')
-    
+    res.redirect('/');
+  
     })
     .catch((err) => {
-      res.status(400).send('unable to save to database');
+      res.status(400).send('invalid' +
+      '<br><a href = "/"><button>Back to Quiz</button></a>'
+      )
     });
   });
 
