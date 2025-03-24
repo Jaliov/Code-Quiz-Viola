@@ -1,0 +1,50 @@
+body {
+  background-color: rgb(200, 93, 60);
+}
+
+#jumboColor {
+  /* background-image: url(ViolaBackFoggy.jpg); */
+  background-color: rgba(158, 94, 75, 0.5);
+}
+
+#result {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#intro {
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+}
+
+#buttonPlce {
+  padding: 20px;
+}
+
+.timeEl {
+  color: white;
+}
+
+#timerStyle {
+  /* background-color: white; */
+  width: 15%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  background-image: url(ViolaBackFoggyOverlay.jpg);
+  height: 120%;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: red;
+  font-size: 80%;
+  opacity: 0.5; /* Firefox */
+}
+
+h1 {
+  font-family: "Bigshot One", cursive;
+}

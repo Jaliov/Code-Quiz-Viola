@@ -1,31 +1,6 @@
 {
-  "name": "code-quiz-viola",
-  "version": "1.0.0",
-  "description": "![](CodeQuiz_ScrnShot.jpg)",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jaliov/Code-Quiz-Viola"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://https://github.com/Jaliov/Code-Quiz-Viola/issues"
-  },
-  "homepage": "https://github.com/Jaliov/Code-Quiz-Viola#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "connect-timeout": "^1.9.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.19",
-    "morgan": "^1.10.0"
-  },
-  "engines": {
-    "node": "12.6.0"
+    "mongodb": "^6.15.0",
+    "node": "^23.9.0"
   }
 }
