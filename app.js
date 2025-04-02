@@ -1,80 +1,78 @@
-require('dotenv').config();
-var express = require('express');
+require("dotenv").config();
+var express = require("express");
 var app = express();
 var port = process.env.PORT || 5000;
 
-var morgan = require('morgan');
+var morgan = require("morgan");
 
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
-var bodyParser = require('body-parser');
+var bodyParser = require("body-parser");
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/public', express.static(__dirname + '/public'));
-app.use(express.static(__dirname + 'public/stylesheets/style.css'));
-app.use(express.static(__dirname + 'public/javascripts/script.js'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/public", express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "public/stylesheets/style.css"));
+app.use(express.static(__dirname + "public/javascripts/script.js"));
+const { body, validationResult } = require("express-validator");
 
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
-const url = //'mongodb://127.0.0.1:27017'
-  process.env.MONGODB_URI || 'mongodb://localhost/Code-Quiz-Viola';
-  
+const url = process.env.MONGODB_URI; //"mongodb://localhost/Code-Quiz-Viola"; //'mongodb://127.0.0.1:27017'
+
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  url,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  (err, client) => {
-    if (err) return console.error(err);
-    console.log('Connected to Database');
-  }
+  "mongodb+srv://TestViola:vlaStunn93@cluster0.sils7.mongodb.net/test"
 );
 
-mongoose.connection.on("error", err => {
-  console.log("err", err)
-})
+mongoose.connection.on("error", (err) => {
+  console.log("err", err);
+});
 
-mongoose.connection.on('connected', () => {
-  console.log('Mongoose is connected!!!');
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose is connected!!!");
 });
 
 var resultsSchema = new mongoose.Schema({
   // initials: { type: String, default: '' },
-  initials: { type: String, match:/^[A-Za-z]{2,3}$/}
+  initials: { type: String, match: /^[A-Za-z]{2,3}$/ },
 });
 
 var scoreSchema = new mongoose.Schema({
-  finalScore: { type: Number, default: 0 },
-})
-
-//Model
-var User = mongoose.model('User', resultsSchema);
-
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  finalScore: Number,
 });
 
-app.post('/test', (req, res) => {
-  var myData = new User(req.body);
-  myData
-    .save()
-    .then((item) => {
-    res.redirect('/');
-  
-    })
-    .catch((err) => {
-      res.status(400).send('invalid' +
-      '<br><a href = "/"><button>Back to Quiz</button></a>'
-      )
-    });
+//Model
+var Users1 = mongoose.model("initials", resultsSchema);
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+app.post("/initials", async (req, res) => {
+  const { initials } = req.body;
+  const user = new Users1({
+    initials,
   });
+  const errors = validationResult(req);
+  const message = "No empty fields. Name should be more than 2 characters long";
+  if (!errors.isEmpty()) {
+    return res
+      .status(400)
+      .send(
+        "<h4 style = 'font-family: Arial, Helvetica, sans-serif;'>" +
+          message +
+          "<a href = 'form.html' class = 'button'><br>Back</a></h4>"
+      );
+  }
+  await user.save();
 
-var UserS = mongoose.model('UserS', scoreSchema);
+  console.log(user);
+});
 
-app.post('/addScore', (req, res) => {
-  var myData = new UserS(req.body);
+var Users = mongoose.model("finalScore", scoreSchema);
+
+app.post("/finalScore", (req, res) => {
+  var myData = new Users(req.body);
   myData
     .save()
     .then((item) => {
@@ -85,7 +83,7 @@ app.post('/addScore', (req, res) => {
       console.log(req.body);
     })
     .catch((err) => {
-      res.status(400).send('unable to save to database');
+      res.status(400).send("unable to save to database");
     });
 });
 
