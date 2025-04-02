@@ -51,7 +51,7 @@ app.post("/initials", async (req, res) => {
     initials,
   });
   const errors = validationResult(req);
-  const message = "No empty fields. Name should be more than 2 characters long";
+  const message = "No empty fields.";
   if (!errors.isEmpty()) {
     return res
       .status(400)
@@ -60,9 +60,10 @@ app.post("/initials", async (req, res) => {
           message +
           "<a href = 'form.html' class = 'button'><br>Back</a></h4>"
       );
+  } else {
+    console.error("An error occurred:", errors);
   }
   await user.save();
-
   console.log(user);
 });
 
@@ -72,15 +73,15 @@ app.post("/finalScore", (req, res) => {
   var myData = new Users(req.body);
   myData
     .save()
-    .then((item) => {
+    .then(() => {
       res.send(
         '<body style="background-color:rgba(140, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Final Score Saved!</h2> ' +
           '<a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a></div></body>'
       );
       console.log(req.body);
     })
-    .catch((err) => {
-      res.status(400).send("unable to save to database");
+    .catch((error) => {
+      res.status(400).send("unable to save to database", error.message);
     });
 });
 
