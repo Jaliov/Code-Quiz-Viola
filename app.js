@@ -1,8 +1,10 @@
-require("dotenv").config();
 var express = require("express");
+var mongoose = require("mongoose");
 var app = express();
 var port = process.env.PORT || 5000;
 
+const dotenv = require("dotenv");
+dotenv.config({ path: "./.env" });
 var morgan = require("morgan");
 
 app.use(morgan("dev"));
@@ -13,16 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "public/stylesheets/style.css"));
 app.use(express.static(__dirname + "public/javascripts/script.js"));
-const { body, validationResult } = require("express-validator");
+const { validationResult } = require("express-validator");
 
-var mongoose = require("mongoose");
+//"mongodb://localhost/Code-Quiz-Viola"; //'mongodb://127.0.0.1:27017'
 
-const url = process.env.MONGODB_URI; //"mongodb://localhost/Code-Quiz-Viola"; //'mongodb://127.0.0.1:27017'
-
-mongoose.Promise = global.Promise;
-mongoose.connect(
-  "mongodb+srv://TestViola:vlaStunn93@cluster0.sils7.mongodb.net/test"
-);
+mongoose.connect(process.env.MONGO_URI);
 
 mongoose.connection.on("error", (err) => {
   console.log("err", err);
