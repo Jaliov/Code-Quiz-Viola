@@ -80,8 +80,8 @@ app.post("/finalScore", (req, res) => {
       );
       console.log(req.body);
     })
-    .catch((error) => {
-      res.status(400).send("unable to save to database", error);
+    .catch((err) => {
+      res.status(400).send("unable to save to database");
     });
 });
 
