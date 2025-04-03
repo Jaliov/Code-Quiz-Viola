@@ -51,12 +51,12 @@ var displyField = document.getElementById("loadField");
 var t = 60;
 var score = 0;
 
-document
-  .querySelector("#initSubmit")
-  .addEventListener("mousedown", function () {
-    document.querySelector("#initSubmit").value = "Submitted";
-    console.log("initials : " + initStorage.value);
-  });
+// document
+//   .querySelector("#initSubmit")
+//   .addEventListener("mousedown", function () {
+//     document.querySelector("#initSubmit").value = "Submitted";
+//     console.log("initials : " + initStorage.value);
+//   });
 
 document.querySelector("#initSubmit").addEventListener("mouseup", function () {
   alert("now press start");
