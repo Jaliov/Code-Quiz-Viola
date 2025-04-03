@@ -16,6 +16,24 @@ body {
   margin-right: auto;
   margin-left: auto;
   width: 50%;
+  margin-bottom: 2rem;
+}
+
+#initials {
+  border-style: solid;
+  border-color: red;
+  width: 3rem;
+  height: 2 rem;
+  border-radius: 0.3rem;
+}
+
+#start {
+  color: white;
+}
+
+#start:hover {
+  background-color: #dc3545; /* Green */
+  color: white;
 }
 
 #buttonPlce {
@@ -43,6 +61,7 @@ body {
   color: red;
   font-size: 80%;
   opacity: 0.5; /* Firefox */
+  text-align: center;
 }
 
 h1 {

@@ -16,6 +16,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   width: 50%;
+  margin-bottom: 2rem;
 }
 
 #buttonPlce {
@@ -38,13 +39,13 @@ body {
   height: 120%;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: red;
   font-size: 80%;
-  opacity: .5; /* Firefox */
+  opacity: 0.5; /* Firefox */
 }
 
 h1 {
-  font-family: 'Bigshot One', cursive;
+  font-family: "Bigshot One", cursive;
 }
-
