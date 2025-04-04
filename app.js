@@ -50,19 +50,7 @@ app.post("/initials", async (req, res) => {
   const user = new Users1({
     initials,
   });
-  // const errors = validationResult(req);
-  // const message = "No empty fields.";
-  // if (!errors.isEmpty()) {
-  //   return res
-  //     .status(400)
-  //     .send(
-  //       "<h4 style = 'font-family: Arial, Helvetica, sans-serif;'>" +
-  //         message +
-  //         "<a href = 'form.html' class = 'button'><br>Back</a></h4>"
-  //     );
-  // } else {
-  //   console.error("An error occurred:", errors);
-  // }
+
   await user.save();
   console.log(user);
 });

@@ -35,18 +35,18 @@ var multiChoices = [
 ];
 
 var qIndex = 0;
-var nextQuesArr = [];
+let nextQuesArr = [];
 // var initStorage = document.querySelector('#initials');
-var quesSection = document.querySelector("section");
-var timeEl = document.querySelector(".time");
-var startButton = document.getElementById("start");
+let quesSection = document.querySelector("section");
+let timeEl = document.querySelector(".time");
+const startButton = document.getElementById("start");
 startButton.addEventListener("click", setTime);
-var scoreDisplay = document.getElementById("result");
-var initialsClear = document.querySelector(".clearField");
-var finalScore = document.getElementById("finalScore");
+const scoreDisplay = document.getElementById("result");
+const initialsClear = document.querySelector(".clearField");
+let finalScore = document.getElementById("finalScore");
 const initialsEntry = document.getElementById("initials");
 let loadFinalScore = document.getElementById("formPost");
-var displyField = document.getElementById("loadField");
+let displyField = document.getElementById("loadField");
 
 var t = 60;
 var score = 0;
