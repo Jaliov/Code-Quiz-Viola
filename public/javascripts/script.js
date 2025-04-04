@@ -44,7 +44,7 @@ startButton.addEventListener("click", setTime);
 var scoreDisplay = document.getElementById("result");
 var initialsClear = document.querySelector(".clearField");
 var finalScore = document.getElementById("finalScore");
-// var userChoice;
+const initialsEntry = document.getElementById("initials");
 let loadFinalScore = document.getElementById("formPost");
 var displyField = document.getElementById("loadField");
 
@@ -58,8 +58,21 @@ var score = 0;
 //     console.log("initials : " + initStorage.value);
 //   });
 
+function isFieldEmpty(field) {
+  return field.value.trim() === "";
+}
 document.querySelector("#initSubmit").addEventListener("mouseup", function () {
-  alert("now press start");
+  if (isFieldEmpty(initialsEntry)) {
+    alert("Please enter your initials");
+  } else {
+    alert("now press start");
+  }
+});
+startButton.addEventListener("mousedown", function () {
+  if (isFieldEmpty(initialsEntry)) {
+    alert("Please enter your initials first");
+    location.reload();
+  }
 });
 
 function loadStart() {
