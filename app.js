@@ -53,6 +53,7 @@ app.post("/initials", async (req, res) => {
 
   await user.save();
   console.log(user);
+  // res.redirect("/");
 });
 
 var Users = mongoose.model("finalScore", scoreSchema);
