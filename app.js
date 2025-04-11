@@ -45,15 +45,15 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.post("/initials", async (req, res) => {
+app.post("/initials", (req, res) => {
   const { initials } = req.body;
   const user = new Users1({
     initials,
   });
 
-  await user.save();
+  user.save();
   console.log(user);
-  // res.redirect("/");
+  res.status(200);
 });
 
 var Users = mongoose.model("finalScore", scoreSchema);

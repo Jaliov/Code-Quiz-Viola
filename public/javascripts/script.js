@@ -61,19 +61,24 @@ var score = 0;
 function isFieldEmpty(field) {
   return field.value.trim() === "";
 }
-document.querySelector("#initSubmit").addEventListener("mouseup", function () {
+let initSubmit = document.querySelector("#initSubmit");
+
+initSubmit.addEventListener("mouseup", function () {
   if (isFieldEmpty(initialsEntry)) {
     alert("Please enter your initials");
   } else {
-    alert("now press start");
+    alert("Initials submitted. Now press start!");
+    initSubmit.style.visibility = "hidden";
+    document.getElementById("start").style =
+      "margin-left:25%;margin-right:25%;";
   }
 });
-startButton.addEventListener("mousedown", function () {
-  if (isFieldEmpty(initialsEntry)) {
-    alert("Please enter your initials first");
-    location.reload();
-  }
-});
+// startButton.addEventListener("mousedown", function () {
+//   if (isFieldEmpty(initialsEntry)) {
+//     alert("Please enter your initials first");
+//     location.reload();
+//   }
+// });
 
 function loadStart() {
   $("#initForm").empty();
