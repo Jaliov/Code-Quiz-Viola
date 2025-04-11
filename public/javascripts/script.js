@@ -156,7 +156,6 @@ function sendMessage() {
     } else {
       quizRepeat();
     }
-    initialStorage();
   }
 }
 
@@ -189,30 +188,30 @@ const clearScore = () => {
 };
 
 //Storage
-const initialStorage = () => {
-  const quizStats = {
-    PlayerInitials: initStorage.value,
-    finalScore: score,
-  };
-  typeof Storage !== "undefined"
-    ? console.log(quizStats)
-    : (document.getElementById("result").innerHTML =
-        "Sorry, your browser does not support Web Storage...");
+// const initialStorage = () => {
+//   const quizStats = {
+//     PlayerInitials: initStorage.value,
+//     finalScore: score,
+//   };
+//   typeof Storage !== "undefined"
+//     ? console.log(quizStats)
+//     : (document.getElementById("result").innerHTML =
+//         "Sorry, your browser does not support Web Storage...");
 
-  let AppendValueToStorage = (key, value) => {
-    let RetrievedInput = JSON.parse(localStorage.getItem(key));
-    if (RetrievedInput === null) {
-      RetrievedInput = [];
-    }
+//   let AppendValueToStorage = (key, value) => {
+//     let RetrievedInput = JSON.parse(localStorage.getItem(key));
+//     if (RetrievedInput === null) {
+//       RetrievedInput = [];
+//     }
 
-    RetrievedInput.push(value);
-    localStorage.setItem(key, JSON.stringify(RetrievedInput));
+//     RetrievedInput.push(value);
+//     localStorage.setItem(key, JSON.stringify(RetrievedInput));
 
-    console.log(localStorage.getItem(key));
-  };
-  AppendValueToStorage("Results", quizStats);
-  //   document.forms[0].reset();
-};
+//     console.log(localStorage.getItem(key));
+//   };
+//   AppendValueToStorage("Results", quizStats);
+//   document.forms[0].reset();
+//};
 
 // function cnsoleInitials() {
 //   initStorage.length > 3 ||
