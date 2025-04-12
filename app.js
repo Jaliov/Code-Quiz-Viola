@@ -9,7 +9,7 @@ var morgan = require("morgan");
 
 app.use(morgan("dev"));
 
-var bodyParser = require("body-parser");
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/public", express.static(__dirname + "/public"));
@@ -29,10 +29,10 @@ mongoose.connection.on("connected", () => {
   console.log("Mongoose is connected!!!");
 });
 
-const resultsSchema = new mongoose.Schema({
+const resultsSchema = {
   // initials: { type: String, default: '' },
-  initials: { type: String, match: /^[A-Za-z]{2,3}$/ },
-});
+  initials: String,
+};
 
 const scoreSchema = new mongoose.Schema({
   finalScore: Number,
@@ -46,8 +46,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/initials", (req, res) => {
-  const { initials } = req.body;
-  const user = new Users1({
+  let { initials } = req.body;
+  let user = new Users1({
     initials,
   });
 
