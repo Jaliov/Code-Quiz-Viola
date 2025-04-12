@@ -46,10 +46,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/initials", (req, res) => {
-  let { initials } = req.body;
-  let user = new Users1({
-    initials,
-  });
+  let initials = req.body;
+  let user = new Users1(initials);
 
   user.save();
   console.log(user);
