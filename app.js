@@ -29,17 +29,17 @@ mongoose.connection.on("connected", () => {
   console.log("Mongoose is connected!!!");
 });
 
-const resultsSchema = {
+const resultsSchema = new mongoose.Schema({
   // initials: { type: String, default: '' },
   initials: String,
-};
+});
 
 const scoreSchema = new mongoose.Schema({
   finalScore: Number,
 });
 
 //Model
-var Users1 = mongoose.model("initials", resultsSchema);
+const Users = mongoose.model("initials", resultsSchema);
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
@@ -47,25 +47,25 @@ app.get("/", (req, res) => {
 
 app.post("/initials", (req, res) => {
   let initials = req.body;
-  let user = new Users1(initials);
+  const user = new Users(initials);
 
-  user.save();
-  console.log(user);
-  res.status(200);
+  user.save().then((item) => {
+    res.send("posted!");
+    console.log(user);
+  });
 });
-
-var Users = mongoose.model("finalScore", scoreSchema);
+var Users1 = mongoose.model("finalScore", scoreSchema);
 
 app.post("/finalScore", (req, res) => {
-  const myData = new Users(req.body);
+  const myData = new Users1(req.body);
   myData
     .save()
     .then((item) => {
       res.send(
-        '<body style="background-color:rgba(140, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Final Score Saved!</h2> ' +
-          '<a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a></div></body>'
+        `<body style="background-color:rgba(140, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Final Score Saved!</h2> 
+          <a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a></div></body>')`
       );
-      // console.log(req.body);
+      console.log(item);
     })
     .catch((err) => {
       res.status(400).send("unable to save to database");
