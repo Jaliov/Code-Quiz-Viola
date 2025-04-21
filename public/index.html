@@ -24,7 +24,7 @@
       <div class="jumbotron col-sm-12 text-center" id="jumboColor">
 
         <div class="text-center" id="intro">
-          <div class="alert alert-secondary justify-content-center" role="alert" style="border-radius: 10px;">
+          <div class="alert alert-secondary justify-content-center" role="alert">
             <h5>Among the instruments of the symphony orchestra, the <strong>viola</strong> is one of the least known.
               <br>Take the quiz
               below to
@@ -48,20 +48,18 @@
           <div class="text-center">
             <div class="form-row align-items-center justify-content-center" id="initForm">
               <form method='post' action='/initials'>
-                <label>Submit your Initials then press Start! </label><input type="text" name="initials" id="initials"
-                  placeholder="Initials" required>
+                <label>Submit your Initials then press Start! <input type="text" name="initials" id="initials"
+                    placeholder="Initials" required> </label>
                 <br>
                 <!-- <input type="text" name="score" placeholder="Enter score..." required> -->
                 <input type="submit" class="btn btn-outline-light btn-lg" id="initSubmit" value="Submit">
-
                 <button class="btn btn-outline-warning btn-lg" id="start">Start</button>
               </form>
             </div>
-            <h2 id="result" class="text-light text-center"></h2>
           </div>
 
 
-
+          <h2 id="result" class="text-light text-center"></h2>
           <div>
             <form method='post' action='/finalScore'>
 
@@ -73,45 +71,44 @@
           </div>
         </div>
       </div>
-    </div>
-  </div> <!-- Button trigger modal -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">
+    </div> <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">
   Launch demo modal
 </button> -->
 
-  <!-- Modal -->
-  <div class="modalBtn">
-    <div class="modal fade" id="modal_incorrect" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modalBtn">
+      <div class="modal fade" id="modal_incorrect" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+
+            <div class="modal-header text-danger text-center">
+              <h5 class="modal-title"></h5>
+            </div>
+
+            <h4 class="text-center text-danger">Wrong viola fan!</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="modal_correct" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
-
           <div class="modal-header text-danger text-center">
             <h5 class="modal-title"></h5>
           </div>
+          <h4 class="text-center text-danger">Correct viola fan!</h4>
 
-          <h4 class="text-center text-danger">Wrong viola fan!</h4>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="modal fade" id="modal_correct" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header text-danger text-center">
-          <h5 class="modal-title"></h5>
-        </div>
-        <h4 class="text-center text-danger">Correct viola fan!</h4>
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    </div>
-  </div>
   </div>
   </div>
   <!-- <h1>Results</h1> -->

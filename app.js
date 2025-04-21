@@ -1,7 +1,7 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var app = express();
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 5001;
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "./.env" });
@@ -30,34 +30,38 @@ mongoose.connection.on("connected", () => {
 });
 
 const resultsSchema = new mongoose.Schema({
-  // initials: { type: String, default: '' },
   initials: String,
-});
-
-const scoreSchema = new mongoose.Schema({
   finalScore: Number,
+  // initials: String,
 });
 
-//Model
-const Users = mongoose.model("initials", resultsSchema);
+// const scoreSchema = new mongoose.Schema({
 
+// });
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
+//Model
+const Users = mongoose.model("Users", resultsSchema);
+module.exports = Users;
 
 app.post("/initials", (req, res) => {
-  let initials = req.body;
-  const user = new Users(initials);
+  const initData = new Users(req.body);
+  initData
+    .save()
+    .then((item) => {
+      res.status(201);
 
-  user.save().then((item) => {
-    res.send("posted!");
-    console.log(user);
-  });
+      console.log(item);
+    })
+    .catch((err) => {
+      res.status(400).send("unable to save to database");
+    });
 });
-var Users1 = mongoose.model("finalScore", scoreSchema);
-
+// var Users1 = mongoose.model("finalScore", scoreSchema);
+let id = 1;
 app.post("/finalScore", (req, res) => {
-  const myData = new Users1(req.body);
+  const myData = new Users(req.body);
   myData
     .save()
     .then((item) => {

@@ -63,16 +63,18 @@ function isFieldEmpty(field) {
 }
 let initSubmit = document.querySelector("#initSubmit");
 
-initSubmit.addEventListener("mouseup", function () {
-  if (isFieldEmpty(initialsEntry)) {
-    alert("Please enter your initials");
-  } else {
-    alert("Initials submitted. Now press start!");
-    initSubmit.style.visibility = "hidden";
-    document.getElementById("start").style =
-      "margin-left:25%;margin-right:25%;";
-  }
+initSubmit.addEventListener("click", function () {
+  alert("Initials submitted. Now press start!");
 });
+
+// document.addEventListener("click", myFunction);
+
+// function myFunction() {
+//   document.querySelector("#initials").style.visibility = "hidden";
+// const button = document.getElementById("initials");
+// button.style.visibility = "50%";
+//}
+
 // startButton.addEventListener("mousedown", function () {
 //   if (isFieldEmpty(initialsEntry)) {
 //     alert("Please enter your initials first");
@@ -186,6 +188,8 @@ const clearScore = () => {
   submitAnsw.innerhtml = "";
   quizRepeat();
 };
+
+// CSS.registerProperty(propertyDefinition);
 
 //Storage
 // const initialStorage = () => {

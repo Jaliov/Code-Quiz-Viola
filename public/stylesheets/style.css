@@ -49,3 +49,6 @@ body {
 h1 {
   font-family: "Bigshot One", cursive;
 }
+#initSubmit:active {
+  visibility: hidden;
+}
