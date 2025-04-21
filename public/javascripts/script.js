@@ -61,19 +61,26 @@ var score = 0;
 function isFieldEmpty(field) {
   return field.value.trim() === "";
 }
-let initSubmit = document.querySelector("#initSubmit");
+const submitBtn = document.getElementById("submit-btn");
+// initSubmit.addEventListener("click", validateForm());
 
-initSubmit.addEventListener("click", function () {
-  alert("Initials submitted. Now press start!");
-});
+const validateForm = (e) => {
+  e.preventDefault;
+  const initSubmit = document.querySelector("#initSubmit");
+  if (initSubmit.value === "") {
+    alert("Initials must be filled out");
+    initSubmit.focus();
+    return false;
+  } else {
+    e.preventDefault;
+    alert("Initials submitted. Now press start!");
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = 0.5;
+  }
+  return true;
+};
 
-// document.addEventListener("click", myFunction);
-
-// function myFunction() {
-//   document.querySelector("#initials").style.visibility = "hidden";
-// const button = document.getElementById("initials");
-// button.style.visibility = "50%";
-//}
+submitBtn.addEventListener("click", validateForm);
 
 // startButton.addEventListener("mousedown", function () {
 //   if (isFieldEmpty(initialsEntry)) {

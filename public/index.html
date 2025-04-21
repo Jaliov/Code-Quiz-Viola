@@ -47,12 +47,13 @@
 
           <div class="text-center">
             <div class="form-row align-items-center justify-content-center" id="initForm">
-              <form method='post' action='/initials'>
-                <label>Submit your Initials then press Start! <input type="text" name="initials" id="initials"
+              <form method='post' action='/initials' name="initials">
+                <label>Submit your Initials then press Start! <input type=" text" name="initials" id="initSubmit"
                     placeholder="Initials" required> </label>
                 <br>
                 <!-- <input type="text" name="score" placeholder="Enter score..." required> -->
-                <input type="submit" class="btn btn-outline-light btn-lg" id="initSubmit" value="Submit">
+                <input type="submit" class="btn btn-outline-light btn-lg " name="initSubmit" id="submit-btn"
+                  onsubmit="return validateForm()" value="Submit">
                 <button class="btn btn-outline-warning btn-lg" id="start">Start</button>
               </form>
             </div>
