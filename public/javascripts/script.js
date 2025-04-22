@@ -47,6 +47,8 @@ let finalScore = document.getElementById("finalScore");
 const initialsEntry = document.getElementById("initials");
 let loadFinalScore = document.getElementById("formPost");
 let displyField = document.getElementById("loadField");
+const submitBtn = document.getElementById("submit-btn");
+const initSubmit = document.querySelector("#initSubmit");
 
 var t = 60;
 var score = 0;
@@ -61,18 +63,16 @@ var score = 0;
 function isFieldEmpty(field) {
   return field.value.trim() === "";
 }
-const submitBtn = document.getElementById("submit-btn");
-// initSubmit.addEventListener("click", validateForm());
 
 const validateForm = (e) => {
-  e.preventDefault;
-  const initSubmit = document.querySelector("#initSubmit");
+  e.preventDefault();
+
   if (initSubmit.value === "") {
-    alert("Initials must be filled out");
+    alert("Please enter your intitials");
     initSubmit.focus();
     return false;
   } else {
-    e.preventDefault;
+    e.preventDefault();
     alert("Initials submitted. Now press start!");
     submitBtn.disabled = true;
     submitBtn.style.opacity = 0.5;
@@ -80,14 +80,19 @@ const validateForm = (e) => {
   return true;
 };
 
+const validateStart = (e) => {
+  if (!initSubmit.value || initSubmit.value === "") {
+    alert("Please submit your initials");
+    e.preventDefault();
+    // startButton.disabled = true;
+    location.reload();
+    return false;
+  } else {
+    loadStart();
+  }
+};
 submitBtn.addEventListener("click", validateForm);
-
-// startButton.addEventListener("mousedown", function () {
-//   if (isFieldEmpty(initialsEntry)) {
-//     alert("Please enter your initials first");
-//     location.reload();
-//   }
-// });
+startButton.addEventListener("click", validateStart);
 
 function loadStart() {
   $("#initForm").empty();
