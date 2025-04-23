@@ -50,6 +50,8 @@ let displyField = document.getElementById("loadField");
 const submitBtn = document.getElementById("submit-btn");
 const initSubmit = document.querySelector("#initSubmit");
 
+let firstButtonClicked = false;
+
 var t = 60;
 var score = 0;
 
@@ -72,6 +74,7 @@ const validateForm = (e) => {
     initSubmit.focus();
     return false;
   } else {
+    firstButtonClicked = true;
     e.preventDefault();
     alert("Initials submitted. Now press start!");
     submitBtn.disabled = true;
@@ -87,10 +90,15 @@ const validateStart = (e) => {
     // startButton.disabled = true;
     location.reload();
     return false;
-  } else {
+  } else if (firstButtonClicked === false) {
+    e.preventDefault();
+    location.reload();
+    alert("Please hit submit button");
+  } else if ((firstButtonClicked = true)) {
     loadStart();
   }
 };
+
 submitBtn.addEventListener("click", validateForm);
 startButton.addEventListener("click", validateStart);
 
