@@ -66,7 +66,7 @@ app.post("/finalScore", (req, res) => {
     .save()
     .then((item) => {
       res.send(
-        `<body style="background-color:rgba(140, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Final Score Saved!</h2> 
+        `<body style="background-color:rgba(140, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Final Score: ${item.finalScore}  Saved! </h2> 
           <a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a></div></body>')`
       );
       console.log(item);
