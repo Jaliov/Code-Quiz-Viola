@@ -50,34 +50,25 @@ let displyField = document.getElementById("loadField");
 const submitBtn = document.getElementById("submit-btn");
 const initSubmit = document.querySelector("#initSubmit");
 
-let firstButtonClicked = false;
+let firstButtonClicked = true;
 
-var t = 60;
-var score = 0;
-
-// document
-//   .querySelector("#initSubmit")
-//   .addEventListener("mousedown", function () {
-//     document.querySelector("#initSubmit").value = "Submitted";
-//     console.log("initials : " + initStorage.value);
-//   });
+let t = 60;
+let score = 0;
 
 function isFieldEmpty(field) {
   return field.value.trim() === "";
 }
 
 const validateForm = (e) => {
-  e.preventDefault();
-
-  if (initSubmit.value === "") {
+  //e.preventDefault();
+  if (initSubmit.value === "" || initSubmit.value.length > 3) {
     alert("Please enter your intitials");
     initSubmit.focus();
     return false;
   } else {
     firstButtonClicked = true;
-    e.preventDefault();
+
     alert("Initials submitted. Now press start!");
-    submitBtn.disabled = true;
     submitBtn.style.opacity = 0.5;
   }
   return true;
@@ -186,7 +177,6 @@ function chooseFamily() {
   let submitAnsw = document.querySelector("#ans");
   userChoice = submitAnsw.value;
   if (userChoice === multiChoices[qIndex].answer) {
-    //alert("Correct!")
     $("#modal_correct").modal();
     $("input").val("");
     scoreDisplay.innerHTML = "Score: " + parseInt(++score);
