@@ -59,7 +59,7 @@ app.post("/initials", (req, res) => {
 });
 // var Users1 = mongoose.model("finalScore", scoreSchema);
 let id = 1;
-app.post("/initials", (req, res) => {
+app.post("/finalScore", (req, res) => {
   const myData = new Users(req.body);
   myData
     .save()
