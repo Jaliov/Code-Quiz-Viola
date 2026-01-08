@@ -51,8 +51,7 @@ app.post("/initials", (req, res) => {
     .save()
     .then((item) => {
       res.status(201);
-
-      console.log(item);
+      console.log(initData);
     })
     .catch((err) => {
       res.status(400).send("unable to save to database");
@@ -60,14 +59,14 @@ app.post("/initials", (req, res) => {
 });
 // var Users1 = mongoose.model("finalScore", scoreSchema);
 let id = 1;
-app.post("/finalScore", (req, res) => {
+app.post("/initials", (req, res) => {
   const myData = new Users(req.body);
   myData
     .save()
     .then((item) => {
       res.send(
-        `<body style="background-color:rgba(140, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Final Score: ${item.finalScore}  Saved! </h2> 
-          <a href = "/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a></div></body>')`
+        `<body style="background-color:rgba(140, 94, 75);font-family:sans-serif;"><div style="text-align:center;color:white;"><h2 style ="padding-top:30px;">Final Score:  ${item.initials} ${item.finalScore}  Saved! </h2>
+          <a href = "http://localhost:5001/"><button style="border-radius:15px;background-color:rgba(220, 53, 69);color:white;"><h2>Back to Quiz</h2></button></a></div></body>')`
       );
       console.log(item);
     })

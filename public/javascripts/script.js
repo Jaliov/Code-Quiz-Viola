@@ -146,6 +146,7 @@ function sendMessage() {
     quesSection.innerHTML = "";
     userChoice = "";
     console.log("score at close :" + score);
+
     setTimeout(() => {
       $(".modal").hide();
       $(document.body).removeClass("modal-open");

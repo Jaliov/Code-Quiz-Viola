@@ -44,7 +44,21 @@
           </div>
 
           <div id="testInit"></div>
+          <script>
 
+
+            document.addEventListener("click", function ()
+            {
+              window.onload = function ()
+              {
+                document.querySelector("input[#submit-btn]").style.opacity = 0.5;
+
+              }
+            });
+
+
+
+          </script>
           <div class="text-center">
             <div class="form-row align-items-center justify-content-center" id="initForm">
               <form method='post' action='/initials' name="initials">
@@ -52,17 +66,16 @@
                     placeholder="Initials" pattern="[A-Za-z]{2}" required> </label>
                 <br>
                 <!-- <input type="text" name="score" placeholder="Enter score..." required> -->
-                <input type="submit" class="btn btn-outline-light btn-lg " name="initSubmit" id="submit-btn"
-                  onsubmit="validateForm()" value="Submit">
+                <input type="submit" class="btn btn-outline-light btn-lg " name="submit-btn" id="submit-btn"
+                  value="Submit"> </input>
                 <button class="btn btn-outline-warning btn-lg" id="start">Start</button>
               </form>
             </div>
           </div>
 
-
           <h2 id="result" class="text-light text-center"></h2>
           <div>
-            <form method='post' action='/finalScore'>
+            <form method='post' action='/initials'>
 
               <div id="loadField">
 
